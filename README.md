@@ -1,4 +1,4 @@
-# DevOps Scraper Assignment
+# DevOps and SRE Assignment:
 
 This project uses a multi-stage Docker setup to:
 
@@ -6,11 +6,15 @@ This project uses a multi-stage Docker setup to:
 - Host the scraped data using a Flask web server
 
 ---
-
+##Login:
+```bash
+docker login -u <username> -p <password>
+```
+bash
 ## 🚀 How to Build
 
 ```bash
-docker build --build-arg SCRAPE_URL=https://example.com -t devops-scraper .
+docker build --build-arg SCRAPE_URL=https://example.com -t devops-sre .
 ```
 
 ---
@@ -18,14 +22,14 @@ docker build --build-arg SCRAPE_URL=https://example.com -t devops-scraper .
 ## ▶️ How to Run
 
 ```bash
-docker run -p 5000:5000 devops-scraper
+docker run -p 5000:5000 devops-sre
 ```
 
 ---
 
 ## 🌐 Access the Data
 
-Visit: [http://localhost:5000](http://localhost:5000)
+Visit: [http://localhost:8000](http://localhost:8000)
 
 You will see the scraped data (page title and first heading) in JSON format.
 
