@@ -1,5 +1,5 @@
 # Stage 1: Scraper
-FROM node:18-slim AS scraper
+FROM node:18-slim AS build
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
@@ -38,7 +38,7 @@ RUN node scrape.js
 FROM python:3.10-slim
 
 WORKDIR /app
-COPY --from=scraper /app/scraped_data.json .
+COPY --from=build /app/scraped_data.json .
 COPY server.py requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
